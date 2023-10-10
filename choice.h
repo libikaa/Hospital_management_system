@@ -1,10 +1,10 @@
 #pragma once
 
-#include "staff.h"
+#include "Staff.h"
 #include "choice.h"
 #include "doctor.h"
-#include "patient.h"
-#include "administration.h"
+#include "Patient.h"
+#include "Administration.h"
 #include "appointment.h"
 #include "drug.h"
 class Choice
