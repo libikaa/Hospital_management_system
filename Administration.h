@@ -1,16 +1,17 @@
 #pragma once
 
 #include "doctor.h"
-#include "staff.h"
+#include "Staff.h"
+#include <string>
 
 class Administration
 {
 public:
-    Administration(int i=0);
+    explicit Administration(int i=0);
     Staff s;
     Doctor d;
-    void deleteDoctor(char del_name[50]);
+    void deleteDoctor(string del_name);
     void edit_doctor();
-    void deleteStaff(char del_name[50]);
+    void deleteStaff(string del_name);
     void edit_staff();
 };
