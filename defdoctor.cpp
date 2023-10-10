@@ -4,7 +4,7 @@
 #include <string.h>
 using namespace std;
 
-Doctor::Doctor(int i):p(1)
+Doctor::Doctor(int i)
 {
     if(i==0)
     {
@@ -34,7 +34,7 @@ Doctor::Doctor(int i):p(1)
     }
     }
 }
-void Doctor::getDoctordetails()
+void Doctor::getDoctordetails() const
 {
     cout<<"Doctor name: "<<name<<endl;
     cout<<"Doctor id: "<<id_doc<<endl;
@@ -42,11 +42,11 @@ void Doctor::getDoctordetails()
     cout<<"Doctor Qualification: "<<qualification<<endl;
     cout<<"Doctor salary: "<<salary<<endl;
 }
-void Doctor::add_doctor()
+void Doctor::add_doctor() const
 {
     Doctor d;
 }
-void Doctor::Disp_alld()
+void Doctor::Disp_alld() const
 {
     ifstream kr;
     Doctor d(1);
@@ -64,7 +64,7 @@ void Doctor::Disp_alld()
     }
     kr.close();
 }
-void Doctor::getHospitaldetails()
+void Doctor::getHospitaldetails() const
 {
     ifstream new_file;
     new_file.open("hospital_details.txt");
@@ -77,10 +77,10 @@ void Doctor::getHospitaldetails()
     }
     cout<<"\n\n\t\t";
 }
-void Doctor::checkPatients(int p_id)
+void Doctor::checkPatients(int p_id) const
 {
     ifstream pat;
-    Patient p(1);
+   
     pat.open("Patient.txt",ios::in);
     pat.read((char *)&p,sizeof(p));
     char found='n';
@@ -104,7 +104,7 @@ void Doctor::checkPatients(int p_id)
     }
     pat.close();
 }
-void Doctor::Disp_doc(int d_id)
+void Doctor::Disp_doc(int d_id) const
 {
     ifstream pat;
     Doctor p(1);
@@ -131,7 +131,7 @@ void Doctor::Disp_doc(int d_id)
     }
     pat.close();
 }
-void Doctor::prescribeDrugs(int p_id)
+void Doctor::prescribeDrugs(int p_id) const
 {
     ifstream li;
     Patient p2(1);
