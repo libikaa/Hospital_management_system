@@ -9,7 +9,7 @@ Appointment::Appointment(int i)
     if(i==0)
     {
     ifstream kr;
-    Doctor d(1);
+    
     cout<<"Displaying all Doctor details..."<<endl;
     kr.open("Doctor.txt",ios::in);
     kr.read((char *)&d,sizeof(d));
