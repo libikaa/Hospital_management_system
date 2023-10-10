@@ -1,15 +1,15 @@
 #pragma once
-
+#include <string>
 class Staff
 {
 private:
-    char sname[50];
+    string sname;
     int id_sal;
     int ssalary;
-    char department[50];
+    string department;
 public:
     friend class Administration;
-    Staff(int i=0);
+    explicit Staff(int i=0);
     void getstaffdetails();
     void add_staff();
     void disp_alls();
