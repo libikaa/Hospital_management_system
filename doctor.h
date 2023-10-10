@@ -1,19 +1,20 @@
 #pragma once
 
-#include "patient.h"
+#include "Patient.h"
+#include<string>
 
 class Doctor
 {
 private:
     Patient p;
-    char name[50];
-    char speciality[50];
-    char qualification[50];
+    string name;
+    string speciality;
+    string qualification;
     int id_doc;
     int salary;
 public:
     friend class Administration;
-    Doctor(int i=0);
+    explicit Doctor(int i=0);
     void add_doctor();
     void getDoctordetails();
     void getHospitaldetails();
