@@ -39,7 +39,7 @@ char* Drug::getsymp()
 {
     return symptoms;
 }
-void Drug::getdata()
+void Drug::getdata() const
 {
     cout<<"SYMPTOMS:    \n"<<symptoms<<endl;
     cout<<"DRUG NAME:   \n"<<drug_name<<endl;
@@ -49,7 +49,7 @@ void Drug::getdata()
     cout<<"QUANTITY:    \n"<<quantity[i];}
 }
 
-void Drug::disp_file()
+void Drug::disp_file() const
 {
     ifstream kr;
     Drug d(1);
@@ -67,7 +67,7 @@ void Drug::disp_file()
     }
     kr.close();
 }
-void Drug::add_drug()
+void Drug::add_drug() const
 {
     Drug d;
 }
