@@ -1,16 +1,17 @@
 #pragma once
 
 #include "doctor.h"
+#include <string>
 class Appointment
 {
 private:
     char slot;
-    char Doctorname[50];
+    string Doctorname;
     Doctor d;
 public:
     friend class Patient;
-    Appointment(int i=0);
+    explicit Appointment(int i=0);
     void get_data();
-    void checkAvailability(char Doc_name[50],char sl);
+    void checkAvailability(string Doc_name,char sl);
     void Disp_allap();
 };
