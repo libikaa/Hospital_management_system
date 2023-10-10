@@ -1,4 +1,4 @@
-#include "patient.h"
+#include "Patient.h"
 #include "appointment.h"
 #include<iostream>
 #include <string.h>
@@ -75,7 +75,6 @@ void Patient::Disp_allp()
 void Patient::check()
 {
     ifstream dr;
-    Drug k(1);
     dr.open("Drug_symp.txt",ios::in);
     dr.read((char *)&k,sizeof(k));
     if(!dr)
@@ -136,9 +135,11 @@ void Patient::Disp_pat(int p_id)
 }
 void Patient::makePayment(int p_id)
 {
-    char dru[50];int q,c;float pay;
+    string dru;
+    int q,c;
+    float pay;
     ifstream k;
-    Patient p(1);
+    
     k.open("pat_det.txt",ios::in);
     k.read((char *)&p,sizeof(p));
     if(!k)
@@ -219,11 +220,9 @@ void Patient::checkup(int p_id)
     Patient p(1);
     r.open("Patient.txt");
     r.read((char *)&p,sizeof(p));
-    if(!r)
-    {
-        cout<<"Error opening file"<<endl;
-    }
-    char found='n';float w,h,bmi,s_l,p_l;
+    (!r) ? cout<<"Error opening file"<<endl: cout<<" ";
+    char found='n';
+    float w,h,bmi,s_l,p_l;
     while(!r.eof())
     {
         if(p_id==p.id)
@@ -233,53 +232,62 @@ void Patient::checkup(int p_id)
             cin>>w;
             cout<<"Enter the height in m: "<<endl;
             cin>>h;
-            bmi=(w)/(h*h);
+            bmi=w/(h*h);
             cout<<"Enter the blood sugar level(before eating) in mg/dL: "<<endl;
             cin>>s_l;
             cout<<"Enter the blood pressure level(systolic) in mm Hg: "<<endl;
             cin>>p_l;
             cout<<"\nYour body mass index is "<<bmi<<endl;
-            if(bmi < 18.5)
-                cout<<"\tUNDERWEIGHT";
-            else if(bmi >= 18.5 && bmi < 24.9)
-                cout<<"\tHEALTHY";
-            else if(bmi >= 24.9 && bmi < 30)
-                cout<<"\tOVERWEIGHT";
-            else if(bmi >=30)
-                cout<<"\tSUFFERING FROM OBESITY";
-            else
-                cout<<"INVALID CHOICE"<<endl;
+            switch (true) {
+                case (bmi < 18.5):
+                    cout << "\tUNDERWEIGHT";
+                    break;
+                case (bmi < 24.9):
+                    cout << "\tHEALTHY";
+                    break;
+                case (bmi < 30):
+                    cout << "\tOVERWEIGHT";
+                    break;
+                case (bmi >= 30):
+                    cout << "\tSUFFERING FROM OBESITY";
+                    break;
+                default:
+                    cout << "INVALID CHOICE" << endl;
+                    break;
+            }
+
             cout<<"\nYour blood sugar level is: "<<s_l<<endl;
-            if(s_l < 100)
-                cout<<"\tNORMAL";
-            else if(s_l>= 100 && s_l<=125)
-                cout<<"\tAT HIGH RISK";
-            else if(s_l >=126)
-                cout<<"\tDIABETIC";
-            else
-                cout<<"\tINVALID CHOICE"<<endl;
+            if (s_l < 100) {
+                cout << "\tNORMAL";
+            } else if (s_l <= 125) {
+                cout << "\tAT HIGH RISK";
+            } else if (s_l >= 126) {
+                cout << "\tDIABETIC";
+            } else {
+                cout << "\tINVALID CHOICE" << endl;
+            }
+
             cout<<"\nYour blood pressure is "<<p_l<<endl;
-            if(p_l < 120)
-                cout<<"\tNORMAL";
-            else if(p_l >=120  && p_l < 129)
-                cout<<"\tELEVATED";
-            else if(p_l >=130 && p_l < 139)
-                cout<<"\tPRE HIGH BLOOD PRESSURE";
-            else if(p_l >=140 && p_l < 179)
-                cout<<"\tHIGH BLOOD PRESSURE";
-            else if(p_l>=180)
-                cout<<"\tHYPERTENSION";
-            else
-                cout<<"\tINVALID CHOICE"<<endl;
+           if (p_l < 120) {
+                cout << "\tNORMAL";
+            } else if (p_l < 129) {
+                cout << "\tELEVATED";
+            } else if (p_l < 139) {
+                cout << "\tPRE HIGH BLOOD PRESSURE";
+            } else if (p_l < 179) {
+                cout << "\tHIGH BLOOD PRESSURE";
+            } else if (p_l >= 180) {
+                cout << "\tHYPERTENSION";
+            } else {
+                cout << "\tINVALID CHOICE" << endl;
+            }
+
             cout<<"\n\n\n";
             break;
         }
         r.read((char *)&p,sizeof(p));
     }
-    if(found=='n')
-    {
-        cout<<"File record not found"<<endl;
-    }
+    (found=='n') ? cout<<"File record not found"<<endl: cout<<"";
     r.close();
 }
 void Patient::bookAppointment()
@@ -293,7 +301,8 @@ void Patient::bookAppointment()
     }
     else if(count==1)
     {
-    char dn[50],slt;
+    string dn;
+    string slt;
     Appointment b(1);
     cout<<"\n\nBOOK YOUR APPOINTMENT..."<<endl;
     cout<<"Enter the Doctor name: "<<endl;
