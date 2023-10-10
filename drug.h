@@ -1,18 +1,20 @@
 #pragma once
 
+#include<string>
+
 
 class Drug
 {
 private:
-    char drug_name[50];
+    string drug_name;
     int cost;
-    int quantity[10];
-    int level[10];
-    char symptoms[50];
+    std::array<int, 10> quantity;
+    std::array<int, 10> level;
+    string symptoms;
 public:
     friend class Patient;
     char* getsymp();
-    Drug (int i=0);
+    explicit Drug (int i=0);
     void getdata();
     void disp_file();
     void add_drug();
