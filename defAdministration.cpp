@@ -1,15 +1,15 @@
-#include "administration.h"
+#include "Administration.h"
 #include<iostream>
 #include<fstream>
 #include <string.h>
 #include <cstdio>
 using namespace std;
 
-Administration::Administration(int i):s(1),d(1)
+Administration::Administration()
 {
 
 }
-void Administration::deleteDoctor(char del_name[50])
+void Administration::deleteDoctor(string del_name)
 {
     char option='y';
     while(option=='y')
@@ -46,7 +46,7 @@ void Administration::deleteDoctor(char del_name[50])
         cin>>option;
     }
 }
-void Administration::deleteStaff(char del_name[50])
+void Administration::deleteStaff(string del_name)
 {
     char option='y';
     while(option=='y');
@@ -89,7 +89,7 @@ void Administration::edit_doctor()
     fstream an;
     an.open("Doctor.txt",ios::in|ios::out);
     an.read((char*)&p,sizeof(p));
-    char na[50];
+    string na;
     char found='n';
     int count=0;
     cout<<"Enter doctor name: "<<endl;
@@ -108,45 +108,35 @@ void Administration::edit_doctor()
                         cout<<"Enter the new name of the doctor['.' to retain the old name]"<<endl;
                         cin.ignore();
                         cin>>dn;
-                        if(strcmp(dn,".")==0)
-                            cout<<"old name retained"<<endl;
-                        else
-                            strcpy(p.name,dn);
+                        (strcmp(dn, ".") == 0) ? (cout << "old name retained" << endl) : (strcpy(p.name, dn));
+
                         };break;
                 case 2:{char dn[50];
                         cout<<"Enter the new Speciality['.' to retain the old Speciality]"<<endl;
                         cin.ignore();
                         cin>>dn;
-                        if(strcmp(dn,".")==0)
-                            cout<<"old Speciality retained"<<endl;
-                        else
-                            strcpy(p.speciality,dn);
+                        (strcmp(dn, ".") == 0) ? (cout << "old Speciality retained" << endl) : (strcpy(p.speciality, dn));
+
                         };break;
                 case 3:{int d;
                         cout<<"Enter the new salary[-1 to retain old salary]"<<endl;
                         cin.ignore();
                         cin>>d;
-                        if(d==-1)
-                            cout<<"old salary retained"<<endl;
-                        else
-                            p.salary=d;
+                        (d == -1) ? (cout << "old salary retained" << endl) : (p.salary = d);
+
                         };break;
                 case 4:{int d;
                         cout<<"Enter the new ID number[-1 to retain old ID number]"<<endl;
                         cin>>d;
-                        if(d==-1)
-                            cout<<"old ID number retained"<<endl;
-                        else
-                            p.id_doc=d;
+                        (d == -1) ? (cout << "old ID number retained" << endl) : (p.id_doc = d);
+
                         };break;
                 case 5:{char dn[50];
                         cout<<"Enter the new Qualification['.' to retain old qualification]"<<endl;
                         cin.ignore();
                         cin>>dn;
-                        if(strcmp(dn,".")==0)
-                            cout<<"old Qualification retained"<<endl;
-                        else
-                            strcpy(p.qualification,dn);
+                        (strcmp(dn, ".") == 0) ? (cout << "old Qualification retained" << endl) : (strcpy(p.qualification, dn));
+
                         };break;
                 default:cout<<"Invalid option"<<endl;
             }
