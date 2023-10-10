@@ -1,23 +1,24 @@
 #pragma once
 
 #include "drug.h"
+#include<string>
 
 class Patient
 {
 private:
-    char pname[50];
+    string pname;
     int id;
     int phonenumber;
-    char address[50];
+    string address;
     int age;
-    char sex[50];
-    char drug[50];
-    char symp[50];
+    string sex;
+    string drug;
+    string symp;
     int dose;
     Drug k;
 public:
-    Patient(int i=0);
-    int getpat_id()
+    explicit Patient(int i=0);
+    int getpat_id() const
     {
         return id;
     }
