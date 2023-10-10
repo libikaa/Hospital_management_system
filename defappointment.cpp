@@ -4,7 +4,7 @@
 #include<fstream>
 using namespace std;
 
-Appointment::Appointment(int i):d(1)
+Appointment::Appointment(int i)
 {
     if(i==0)
     {
@@ -40,7 +40,7 @@ Appointment::Appointment(int i):d(1)
     }
     cout<<"Appointment status: \n"<<endl;
 }
-void Appointment::checkAvailability(char doc_name[50],char sl)
+void Appointment::checkAvailability(string doc_name,char sl)
 {
     fstream kr;
     Appointment a(1);
@@ -50,20 +50,21 @@ void Appointment::checkAvailability(char doc_name[50],char sl)
     {
         cout<<"Error opening file"<<endl;
     }
-    while(!kr.eof())
+    while(kr.eof())
     {
         if(strcmp(doc_name,a.Doctorname)==0 && sl==a.slot)
         {
             cout<<"Sorry..Appointment unavailable\n"<<endl;
-            break;
+            
         }
         else
         {
             strcpy(a.Doctorname,doc_name);
             a.slot=sl;
             kr.write((char *)&a,sizeof(a));
-            cout<<"BOOKED\n"<<endl;break;
+            cout<<"BOOKED\n"<<endl;
         }
+        break;
     }
     kr.close();
 }
@@ -78,7 +79,7 @@ void Appointment::get_data()
 void Appointment::Disp_allap()
 {
     ifstream kr;
-    Appointment d(1);
+    
     cout<<"Displaying all Appointment details..."<<endl;
     kr.open("Appointment.txt",ios::in);
     kr.read((char *)&d,sizeof(d));
