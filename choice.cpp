@@ -13,11 +13,11 @@ void Choice::doc_menu()
 	do
 	{
         cout<<"please pick an option"<<endl;
-        cout<<"(1)		Add new doctor record\n"<<endl;
-        cout<<"(2)		Check patient record\n"<<endl;
-        cout<<"(3)		Provide Prescription\n"<<endl;
-        cout<<"(4)		Display doctor record\n"<<endl;
-        cout<<"(5)		Display all doctor records\n"<<endl;
+        cout<<"(1)\tAdd new doctor record\n"<<endl;
+        cout<<"(2)\tCheck patient record\n"<<endl;
+        cout<<"(3)\tProvide Prescription\n"<<endl;
+        cout<<"(4)\tDisplay doctor record\n"<<endl;
+        cout<<"(5)\tDisplay all doctor records\n"<<endl;
         cout<<"Enter your choice"<<endl;
         cin>>option;
         doc_opt(option);
@@ -32,12 +32,12 @@ void Choice::pat_menu()
 	do
 	{
         cout<<"please pick an option"<<endl;
-        cout<<"(1)		Add new patient record\n"<<endl;
-        cout<<"(2)		View your medical report\n"<<endl;
-        cout<<"(3)		Take a general check up\n"<<endl;
-        cout<<"(4)      Book doctor appointment\n"<<endl;
-        cout<<"(5)      Display Patient record\n"<<endl;
-        cout<<"(6)      Display all Patient records\n"<<endl;
+        cout<<"(1)\tAdd new patient record\n"<<endl;
+        cout<<"(2)\tView your medical report\n"<<endl;
+        cout<<"(3)\tTake a general check up\n"<<endl;
+        cout<<"(4)\tBook doctor appointment\n"<<endl;
+        cout<<"(5)\tDisplay Patient record\n"<<endl;
+        cout<<"(6)\tDisplay all Patient records\n"<<endl;
         cout<<"Enter your choice"<<endl;
         cin>>option;
         pat_opt(option);
@@ -52,15 +52,15 @@ void Choice::admin_menu()
     do
     {
         cout<<"please pick an option"<<endl;
-        cout<<"(1)		Add Staff details\n"<<endl;
-        cout<<"(2) 		Display Staff record\n"<<endl;
-        cout<<"(3) 		Display all Staff records\n"<<endl;
-        cout<<"(4)		Delete Doctor record\n"<<endl;
-        cout<<"(5) 		Delete Staff record\n"<<endl;
-        cout<<"(6) 		Edit Doctor record\n"<<endl;
-        cout<<"(7)       Edit Staff record\n"<<endl;
-        cout<<"(8)      Add drug data into file\n"<<endl;
-        cout<<"(9)      Display drug file\n"<<endl;
+        cout<<"(1)\tAdd Staff details\n"<<endl;
+        cout<<"(2) \tDisplay Staff record\n"<<endl;
+        cout<<"(3) \tDisplay all Staff records\n"<<endl;
+        cout<<"(4)\tDelete Doctor record\n"<<endl;
+        cout<<"(5)\tDelete Staff record\n"<<endl;
+        cout<<"(6)\tEdit Doctor record\n"<<endl;
+        cout<<"(7)\tEdit Staff record\n"<<endl;
+        cout<<"(8)\tAdd drug data into file\n"<<endl;
+        cout<<"(9)\tDisplay drug file\n"<<endl;
         cout<<"Enter your choice"<<endl;
         cin>>option;
         admin_opt(option);
@@ -121,16 +121,16 @@ void Choice::admin_opt(int choice)
     switch(choice)
     {
         case 1: s.add_staff();break;
-        case 2: {int d;
+        case 2: {int di;
                 cout<<"Enter the Staff ID to view record: "<<endl;
-                cin>>d;
-                s.disp_stf(d);}break;
+                cin>>di;
+                s.disp_stf(di);}break;
         case 3: s.disp_alls();break;
-        case 4:{char doc[50];
+        case 4:{string doc;
                 cout<<"Enter the Doctor name whose record is to be deleted: "<<endl;
                 cin>>doc;
                 a.deleteDoctor(doc);} break;
-        case 5:{char sp[50];
+        case 5:{string sp;
                 cout<<"Enter the Staff name whose record is to be deleted: "<<endl;
                 cin>>sp;
                 a.deleteStaff(sp);} break;
