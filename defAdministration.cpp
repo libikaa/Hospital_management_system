@@ -104,34 +104,34 @@ void Administration::edit_doctor()
             cout<<"1] Name\n 2] Speciality\n 3] Salary\n 4] ID number\n 5] Qualification\n"<<endl;
             cin>>n;
             switch(n){
-                case 1:{char dn[50];
+                case 1:{string dn;
                         cout<<"Enter the new name of the doctor['.' to retain the old name]"<<endl;
                         cin.ignore();
                         cin>>dn;
                         (strcmp(dn, ".") == 0) ? (cout << "old name retained" << endl) : (strcpy(p.name, dn));
 
                         };break;
-                case 2:{char dn[50];
+                case 2:{string dn;
                         cout<<"Enter the new Speciality['.' to retain the old Speciality]"<<endl;
                         cin.ignore();
                         cin>>dn;
                         (strcmp(dn, ".") == 0) ? (cout << "old Speciality retained" << endl) : (strcpy(p.speciality, dn));
 
                         };break;
-                case 3:{int d;
+                case 3:{int d_o;
                         cout<<"Enter the new salary[-1 to retain old salary]"<<endl;
                         cin.ignore();
-                        cin>>d;
-                        (d == -1) ? (cout << "old salary retained" << endl) : (p.salary = d);
+                        cin>>d_o;
+                        (d_o == -1) ? (cout << "old salary retained" << endl) : (p.salary = d_o);
 
                         };break;
-                case 4:{int d;
+                case 4:{int d_id;
                         cout<<"Enter the new ID number[-1 to retain old ID number]"<<endl;
-                        cin>>d;
-                        (d == -1) ? (cout << "old ID number retained" << endl) : (p.id_doc = d);
+                        cin>>d_id;
+                        (d == -1) ? (cout << "old ID number retained" << endl) : (p.id_doc = d_id);
 
                         };break;
-                case 5:{char dn[50];
+                case 5:{string dn;
                         cout<<"Enter the new Qualification['.' to retain old qualification]"<<endl;
                         cin.ignore();
                         cin>>dn;
@@ -165,7 +165,7 @@ void Administration::edit_staff()
     fstream an;
     an.open("Staff.txt",ios::in|ios::out);
     an.read((char*)&p,sizeof(p));
-    char na[50];
+    string na;
     int count=0;
     char found='n';
     cout<<"Enter Staff name: "<<endl;
@@ -180,40 +180,32 @@ void Administration::edit_staff()
             cout<<"1] Name\n 2] Department\n 3] Salary\n 4] ID number\n"<<endl;
             cin>>n;
             switch(n){
-                case 1:{char ani[50];
+                case 1:{string ani;
                         cout<<"Enter the new name of the staff['.' to retain the old name]"<<endl;
                         cin.ignore();
                         cin>>ani;
-                        if(strcmp(ani,".")==0)
-                            cout<<"old name retained"<<endl;
-                        else
-                            strcpy(p.sname,ani);
+                        (strcmp(ani, ".") == 0) ? (cout << "old name retained" << endl) : (strcpy(p.sname, ani));
+
                         };break;
-                case 2:{char ct[50];
+                case 2:{string ct;
                         cout<<"Enter the new Department['.' to retain the old Department]"<<endl;
                         cin.ignore();
                         cin>>ct;
-                        if(strcmp(ct,".")==0)
-                            cout<<"old Department retained"<<endl;
-                        else
-                            strcpy(p.department,ct);
+                        (strcmp(ct, ".") == 0) ? (cout << "old Department retained" << endl) : (strcpy(p.department, ct));
+
                         };break;
                 case 3:{int wt;
                         cout<<"Enter the new salary[-1 to retain old salary]"<<endl;
                         cin.ignore();
                         cin>>wt;
-                        if(wt==-1)
-                            cout<<"old salary retained"<<endl;
-                        else
-                            p.ssalary=wt;
+                        (wt == -1) ? (cout << "old salary retained" << endl) : (p.ssalary = wt);
+
                         };break;
                 case 4:{int nu;
                         cout<<"Enter the new ID number[-1 to retain old ID number]"<<endl;
                         cin>>nu;
-                        if(nu==-1)
-                            cout<<"old ID number retained"<<endl;
-                        else
-                            p.id_sal=nu;
+                        (nu == -1) ? (cout << "old ID number retained" << endl) : (p.id_sal = nu);
+
                         };break;
                 default: cout<<"Invalid option"<<endl;
             }
