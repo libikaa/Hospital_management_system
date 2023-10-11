@@ -107,9 +107,9 @@ void Doctor::checkPatients(int p_id) const
 void Doctor::Disp_doc(int d_id) const
 {
     ifstream pat;
-    Doctor p(1);
+    Doctor pd(1);
     pat.open("Doctor.txt",ios::in);
-    pat.read((char *)&p,sizeof(p));
+    pat.read((char *)&pd,sizeof(pd));
     char found='n';
     if(!pat)
     {
@@ -121,9 +121,9 @@ void Doctor::Disp_doc(int d_id) const
         {
             cout<<"Displaying Doctor details..."<<endl;
             found='f';
-            p.getDoctordetails();
+            pd.getDoctordetails();
         }
-        pat.read((char *)&p,sizeof(p));
+        pat.read((char *)&pd,sizeof(pd));
     }
     if(found=='n')
     {
