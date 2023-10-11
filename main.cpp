@@ -9,16 +9,17 @@ using namespace std;
 
 int main()
 {
-    int opt,k=1;
+    int opt;
+    int k=1;
     Choice c;
     Doctor d(1);
     cout<<"\t\t\t\t\t\t _________________________________________________________________ \n";
-    cout<<"\t\t\t\t\t\t|                                           	                  |\n";
-    cout<<"\t\t\t\t\t\t|                                                                 |\n";
-    cout<<"\t\t\t\t\t\t|                                                                 |\n";
-    cout<<"\t\t\t\t\t\t|            WELCOME TO HOSPITAL MANAGEMENT  SYSTEM               |\n";
-    cout<<"\t\t\t\t\t\t|                                                                 |\n";
-    cout<<"\t\t\t\t\t\t|                                                                 |\n";
+    cout<<"\t\t\t\t\t\t|\t|\n";
+    cout<<"\t\t\t\t\t\t|\t|\n";
+    cout<<"\t\t\t\t\t\t|\t|\n";
+    cout<<"\t\t\t\t\t\t|WELCOME TO HOSPITAL MANAGEMENT  SYSTEM \t|\n";
+    cout<<"\t\t\t\t\t\t|\t|\n";
+    cout<<"\t\t\t\t\t\t|\t|\n";
     cout<<"\t\t\t\t\t\t|_________________________________________________________________|\n\n";
     system("pause");
     system("cls");
@@ -26,7 +27,7 @@ int main()
     {
     cout<<"\n\n\t\t\t\t\t\tPlease,  Choose from the following Options: \n\n";
     cout<<"\t\t\t\t\t\t ____________________________________________________________________________________\n";
-    cout<<"\t\t\t\t\t\t|                                           	                                     |\n";
+    cout<<"\t\t\t\t\t\t|\t|\n";
     cout<<"\t\t\t\t\t\t|             1  >> Press 1 if u are a DOCTOR                                        |\n";
     cout<<"\t\t\t\t\t\t|             2  >> Press 2 if u are a PATIENT                                       |\n";
     cout<<"\t\t\t\t\t\t|             3  >> Press 3 if u are an ADMIN STAFF                                  |\n";
