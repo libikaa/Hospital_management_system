@@ -136,17 +136,18 @@ void Patient::Disp_pat(int p_id)
 void Patient::makePayment(int p_id)
 {
     string dru;
-    int q,c;
+    int q;
+    int c;
     float pay;
-    ifstream k;
+    ifstream ke;
     
-    k.open("pat_det.txt",ios::in);
-    k.read((char *)&p,sizeof(p));
-    if(!k)
+    ke.open("pat_det.txt",ios::in);
+    ke.read((char *)&p,sizeof(p));
+    if(!ke)
     {
         cout<<"Error opening file"<<endl;
     }
-    while(!k.eof())
+    while(!ke.eof())
     {
         if(p.id==p_id)
         {
@@ -154,7 +155,7 @@ void Patient::makePayment(int p_id)
             q=p.dose;
         }
     }
-    k.close();
+    ke.close();
     ifstream l;
     Drug d(1);
     l.open("Drug_symp.txt",ios::in);
