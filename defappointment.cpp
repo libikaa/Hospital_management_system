@@ -64,7 +64,7 @@ void Appointment::checkAvailability(string doc_name,char sl)
             kr.write((char *)&a,sizeof(a));
             cout<<"BOOKED\n"<<endl;
         }
-        break;
+        
     }
     kr.close();
 }
