@@ -223,7 +223,11 @@ void Patient::checkup(int p_id)
     r.read((char *)&p,sizeof(p));
     (!r) ? cout<<"Error opening file"<<endl: cout<<" ";
     char found='n';
-    float w,h,bmi,s_l,p_l;
+    float w;
+    float h;
+    float bmi;
+    float s_l;
+    float p_l;
     while(!r.eof())
     {
         if(p_id==p.id)
